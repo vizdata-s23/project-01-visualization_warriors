@@ -1,0 +1,33 @@
+---
+title: "Rob EDA"
+editor: visual
+---
+
+
+```{r}
+pell <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-08-30/pell.csv', show_col_types = FALSE)
+```
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+
+
+```{r}
+pell |>
+  ggplot(
+    aes(
+      x = 
+    )
+  )
+```
+
+
+```{r}
+pell |>
+  count(state)
+```
+
+
