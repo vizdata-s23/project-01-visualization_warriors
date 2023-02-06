@@ -1,0 +1,14 @@
+{
+  "hash": "96f4e587de22bdc77eeb0b0b9c6aa669",
+  "result": {
+    "markdown": "---\ntitle: \"Pell Grant EDA\"\neditor: visual\n---\n\n::: {.cell}\n\n```{.r .cell-code}\npell <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-08-30/pell.csv', show_col_types = FALSE)\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
