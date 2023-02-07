@@ -1,27 +1,63 @@
 ---
-title: "Project title"
+title: "Exploring Pell Grant Data From 1999-2017"
 subtitle: "Proposal"
 format: html
 editor: visual
 ---
 
 ```{r}
-#| label: load-pkgs
+#| label: load pkgs and data
 #| message: false
+#| warning: FALSE
+#| echo: FALSE
 
 library(tidyverse)
+library(dplyr)
+pell <- read_csv("data/pell.csv")
 ```
 
 # Dataset
 
-A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.
+**Data Description:**
 
-Make sure to load the data and use inline code for some of this information.
+This data set `pell` contains information on the distribution of Pell Grant awards to college students in the United States from the years of 1999-2017 and was featured in tidytuesday in 2022. The data set is a compilation of yearly data sets collected by the US Department of Education. It is important to note that the original yearly data was reported in different ways across the years but was later compiled and cleaned to the `pell` data set used in this project.
+
+The `pell` data set contains `r nrow(pell)` cases of pell grant grants and only `r sum(is.na(pell))` missing values.
+
+It contains `r ncol(pell)` columns titled `r colnames(pell)` . Essentially, the data set explores the award amount in each school for each respective year.
+
+The variables NAME, STATE, and SESSION are all factors. Specifically, it is important to note that the variable STATE includes US states *and* territories (su) . Finally, the difference between SESSION and YEAR is that SESSION indicates the academic school year (typically in between two years).
+
+**The reason we chose this data set:**
+
+A pell grant is a grant from the United States government covering the cost of an undergraduate or graduate-level education. Recipients of pell grants typically display strong financial need. As college students, our families and we are currently making financial decisions pertaining to financing our education. Pell grants are of interest to us, as we understand the impact receiving a pell grant can have on one's financial situation and educational opportunity. This dataset will allow us to explore various trends of receiving pell grants over time and across locations.
+
+\
 
 # Questions
 
-The two questions you want to answer.
+**Question 1:**
+
+How does the average Pell grant award change over time based on the region?
+
+\
+**Question 2:**
+
+Which states have seen the biggest change in the percentage of awarded pell grants to total students enrolled in university over time?
 
 # Analysis plan
 
-A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+**Plan To Solve Question 1:**
+
+The raw dataset contains six columns of information: the state in which the school's located, the total Pell grant award the school gave, the number of students at the school who received a Pell grant, the name of the school, the session year, and the year. 
+
+\
+In order to solve the question of how the average Pell grant award changes over time based on the region, we first need two additional variables: the **average pell grant** for school and **region.** The 'average pell grant' variable will be calculated by dividing the total Pell grant award by the number of students who received the award. The 'region' variable will be mutated by returning the region based on the school's state. A line graph will most likely be implemented to answer this question, since we're seeking to check a numerical variable's progression over time.
+
+**Plan To Solve Question 2:**
+
+From the raw dataset, we will use the state in which the school is located, the total amount of Pell grant recipients for each year, and the year. We will summarize the data to just get the amount of Pell recipients by state by year. From there, we will incorporate enrollment data for the total amount of students enrolled in university by state by year. With that data, we will be able to calculate the proportion of students who are enrolled in university receiving a Pell Grant by dividing amount of recipients by state by year by total undergrads enrolled by state by year. We can then visualize this proportion along with the total numbers to hopefully make some interesting insights. We think it is likely to use a line graph or a bar chart to look at certain states over time, but we will explore this more once we have wrangled our data.
+
+\
+
+\
