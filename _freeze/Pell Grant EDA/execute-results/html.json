@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "hash": "a8b3fa4485dcf30b019e7fcd1c5c6017",
+=======
+  "hash": "96f4e587de22bdc77eeb0b0b9c6aa669",
+>>>>>>> 37e05a758309077be094ff0694420f7496fb01bd
   "result": {
     "markdown": "---\ntitle: \"Pell Grant EDA\"\neditor: visual\n---\n\n::: {.cell}\n\n```{.r .cell-code}\npell <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-08-30/pell.csv', show_col_types = FALSE)\n```\n:::\n",
     "supporting": [],
