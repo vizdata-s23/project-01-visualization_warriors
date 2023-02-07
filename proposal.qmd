@@ -30,7 +30,7 @@ The variables NAME, STATE, and SESSION are all factors. Specifically, it is impo
 
 **The reason we chose this data set:**
 
-A pell grant is a grant from the United States government covering the cost of an undergraduate or graduate-level education. Recipients of pell grants typically display strong financial need. As college students, our families and we are currently making financial decisions pertaining to financing our education. Pell grants are of interest to us, as we understand the impact receiving a pell grant can have on one's financial situation and educational opportunity. This dataset will allow us to explore various trends of receiving pell grants over time and across locations.
+A pell grant is a grant from the United States government covering the cost of an undergraduate or graduate-level education. Recipients of pell grants typically display strong financial need. As college students, we and our families are currently making financial decisions pertaining to financing our education. Pell grants are of interest to us, as we understand the impact receiving a pell grant can have on one's financial situation and educational opportunity. This dataset will allow us to explore various trends of receiving pell grants over time and across locations.
 
 \
 
