@@ -49,7 +49,9 @@ Which states have seen the biggest change in the percentage of awarded pell gran
 
 **Plan To Solve Question 1:**
 
-The raw data set contains six columns of information: the state in which the school's located, the total Pell grant award the school gave, the number of students at the school who received a Pell grant, the name of the school, the session year, and the year. In order to solve the question of how the average Pell grant award changes over time based on the region, we first need two additional variables: the **average pell grant** for school and **region.** The 'average pell grant' variable will be calculated by dividing the total Pell grant award by the number of students who received the award. The 'region' variable will be mutated by returning the region based on the school's state. A line graph will most likely be implemented to answer this question, since we're seeking to check a numerical variable's progression over time.
+The raw data set contains six columns of information: the state in which the school's located, the total Pell grant award the school gave, the number of students at the school who received a Pell grant, the name of the school, the session year, and the year. In order to solve the question of how the average Pell grant award changes over time based on the region, we first need two additional variables: the **average pell grant** for school and **region.** The 'average pell grant' variable will be calculated by dividing the total Pell grant award by the number of students who received the award. The 'region' variable will be mutated by returning the region based on the school's state.
+
+We plan to manually mutate a column that assigns states to regions based on the state location as determined by the US Census/Government usage. A line graph will most likely be implemented to answer this question, since we're seeking to check a numerical variable's progression over time. In the end, we hope to have a region-by-region understanding of Pell grant awards and their changes over time.
 
 **Plan To Solve Question 2:**
 
