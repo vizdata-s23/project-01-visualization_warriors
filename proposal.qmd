@@ -16,7 +16,7 @@ library(dplyr)
 pell <- read_csv("data/pell.csv")
 ```
 
-# Dataset
+## Dataset
 
 **Data Description:**
 
@@ -34,7 +34,7 @@ A pell grant is a grant from the United States government covering the cost of a
 
 \
 
-# Questions
+## Questions
 
 **Question 1:**
 
@@ -45,7 +45,7 @@ How does the average Pell grant award change over time based on the region?
 
 Which states have seen the biggest change in the percentage of awarded pell grants to total students enrolled in university over time?
 
-# Analysis plan
+## Analysis plan
 
 **Plan To Solve Question 1:**
 
