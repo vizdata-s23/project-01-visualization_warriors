@@ -39,7 +39,7 @@ How does the average Pell grant award change over time based on the region?
 
 ### Question 2:
 
-Which states have seen the biggest change in the percentage of awarded pell grants to total students enrolled in university over time?
+Which states have seen the biggest change in the percentage of awarded Pell grants to total students enrolled in university over time?
 
 ## Analysis plan
 
