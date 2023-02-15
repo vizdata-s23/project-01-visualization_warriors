@@ -12,7 +12,6 @@ editor: visual
 #| echo: FALSE
 
 library(tidyverse)
-library(dplyr)
 pell <- read_csv("data/pell.csv")
 ```
 
@@ -32,7 +31,6 @@ The variables NAME, STATE, and SESSION are all factors. Specifically, it is impo
 
 A pell grant is a grant from the United States government covering the cost of an undergraduate or graduate-level education. Recipients of pell grants typically display strong financial need. As college students, we and our families are currently making financial decisions pertaining to financing our education. Pell grants are of interest to us, as we understand the impact receiving a pell grant can have on one's financial situation and educational opportunity. This dataset will allow us to explore various trends of receiving pell grants over time and across locations.
 
-\
 
 ## Questions
 
@@ -40,7 +38,6 @@ A pell grant is a grant from the United States government covering the cost of a
 
 How does the average Pell grant award change over time based on the region?
 
-\
 **Question 2:**
 
 Which states have seen the biggest change in the percentage of awarded pell grants to total students enrolled in university over time?
@@ -57,6 +54,4 @@ We plan to manually mutate a column that assigns states to regions based on the 
 
 From the raw data set, we will use the state in which the school is located, the total amount of Pell grant recipients for each year, and the year. We will summarize the data to just get the amount of Pell recipients by state by year. From there, we will incorporate enrollment data for the total amount of students enrolled in university by state by year. With that data, we will be able to calculate the proportion of students who are enrolled in university receiving a Pell Grant by dividing amount of recipients by state by year by total undergrads enrolled by state by year. We can then visualize this proportion along with the total numbers to hopefully make some interesting insights. We think it is likely to use a line graph or a bar chart to look at certain states over time, but we will explore this more once we have wrangled our data.
 
-\
 
-\
