@@ -119,24 +119,22 @@ For our first visualization, we plan to use a line graph to visualize the propor
 
 ```{r}
 enrollment <- enrollment[1:51,] |>
-  mutate(state = c("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA",
+  mutate(STATE = c("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA",
            "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA",
            "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY",
            "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX",
            "UT", "VT", "VA", "WA", "WV", "WI", "WY")) |>
-  select(c("Enrollment_2020", "state", "percent_change_from_2010"))
+  select(c("Enrollment_2020", "STATE", "percent_change_from_2010"))
 
 enrollment <- enrollment[, c(2,1,3)]
 
 enrollment <- enrollment |>
-  mutate(percent_change_from_2010 = as.numeric(gsub("\\%", "", percent_change_from_2010,)))
+  mutate(percent_change_from_2010 = as.numeric(gsub("\\%", "", percent_change_from_2010)),
+            Enrollment_2010 = (Enrollment_2020 / (1+(percent_change_from_2010/100))))
 
+enrollment
 
-
-  
-
-
-  mutate(Enrollment_2010 = (Enrollment_2020 / (1-(percent_change_from_2010/100)))
+enrollment_pell <- inner_join(enrollment, pell, by = "STATE")
 
 
 
