@@ -51,6 +51,9 @@ pell <- read_csv("data/pell.csv")
 regions <- read_csv("data/region.csv")
 
 pell <- pell |>
+  drop_na(AWARD)
+
+pell <- pell |>
   mutate(TERM = case_when(
     YEAR %in% c(1999, 2000) ~ 'Clinton (1999-2000)',
      YEAR %in% c(2001, 2002, 2003, 2004) ~ 'Bush (2001-2004)',
@@ -58,13 +61,20 @@ pell <- pell |>
      YEAR %in% c(2009, 2010, 2011, 2012) ~ 'Obama (2009-2012)',
      YEAR %in% c(2013, 2014, 2015, 2016) ~ 'Obama (2013-2016)',
      YEAR %in% c(2017) ~ 'Trump (2017-2018)'
-  ))
+  ), 
+  TERM = fct_relevel(TERM,
+                     "Clinton (1999-2000)", "Bush (2001-2004)",
+                     "Bush (2005-2008)", "Obama (2009-2012)",
+                     "Obama (2013-2016)", "Trump (2017-2018)"
+                     )
+  )
 
 pell_grouped <- pell |>
   group_by(STATE, TERM) %>%
-  summarise(total_award = sum(AWARD), 
-            total_recipients = sum(RECIPIENT), 
-            .groups = 'drop') %>%
+  summarise(
+    total_award = sum(AWARD),
+    total_recipients = sum(RECIPIENT)
+    ) %>%
   mutate(AVG_PELL_AWARD = total_award/total_recipients)
 
 map_state <- map_data("state")
