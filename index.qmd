@@ -44,12 +44,38 @@ theme_set(
 )
 ```
 
-```{r creation-of-variables}
+```{r data-adjustment}
 #load the region data set + join to original (be sure to account for the territories)
 
 pell <- read_csv("data/pell.csv")
 regions <- read_csv("data/region.csv")
 
+pell <- pell |>
+  mutate(TERM = case_when(
+    YEAR %in% c(1999, 2000) ~ 'Clinton (1999-2000)',
+     YEAR %in% c(2001, 2002, 2003, 2004) ~ 'Bush (2001-2004)',
+     YEAR %in% c(2005, 2006, 2007, 2008) ~ 'Bush (2005-2008)',
+     YEAR %in% c(2009, 2010, 2011, 2012) ~ 'Obama (2009-2012)',
+     YEAR %in% c(2013, 2014, 2015, 2016) ~ 'Obama (2013-2016)',
+     YEAR %in% c(2017) ~ 'Trump (2017-2018)'
+  ))
+
+pell_grouped <- pell |>
+  group_by(STATE, TERM) %>%
+  summarise(total_award = sum(AWARD), 
+            total_recipients = sum(RECIPIENT), 
+            .groups = 'drop') %>%
+  mutate(AVG_PELL_AWARD = total_award/total_recipients)
+
+map_state <- map_data("state")
+map_state$region <- str_to_title(map_state$region)
+map_state$STATE <- state.abb[match(map_state$region, state.name)]
+pell_map <- left_join(map_state, pell_grouped, by = "STATE")
+
+
+```
+
+```{r}
 pell2 <- inner_join(pell, regions) #decided to drop all territories
 
 #began creating the avg_pell_award data
