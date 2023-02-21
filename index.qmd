@@ -14,7 +14,11 @@ editor: visual
 
 ## Introduction
 
-(1-2 paragraphs): Brief introduction to the dataset. You may repeat some of the information about the dataset provided in the introduction to the dataset on the TidyTuesday repository, paraphrasing on your own terms. Imagine that your project is a standalone document and the grader has no prior knowledge of the dataset.
+The `pell` data set was featured on TidyTuesday in 2022. It contains information on the distribution of pell grant awards to college students in the United States from 1999-2017. This data set is a compilation of yearly datasets collected by the US Department of Education. The original yearly data was reported by the USDE in different ways across the years, after which it was cleaned up to become the \`pell\` data set that will be used in this project. 
+
+The `pell` data set contains 100470 cases of Pell grant awards and contains 4 missing values. It explores the award amount in each school for each respective year represented in the data set. The variables in this data set include the state in which the school\'s located, the total Pell grant award the school gave, the number of students at the school who received a Pell grant, the name of the school, the session year, and the year. Specifically, the variables `NAME`, `FACTOR`, and `SESSION` are all factor variables while the other variables are numeric. There are some important notes to keep in mind when interpreting the data set. Firstly, the variable `STATE` includes both US states and territories, meaning there are more than 50 possible observation types. Finally, the difference between `SESSION` and `YEAR` is that `SESSION` indicates the academic school year (which is between two numeric years)
+
+\
 
 ## Question 1: Title that relates to the question you're answering
 
