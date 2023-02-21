@@ -36,9 +36,11 @@ The `pell` data set contains 100470 cases of Pell grant awards and contains 4 mi
 
 ```{r load-packages}
 library(ggplot2)
-library(dplyr)
+library(tidyverse)
 require(maps)
 require(viridis)
+install.packages("ISLR")
+library(ISLR)
 theme_set(
   theme_void()
 )
@@ -49,6 +51,7 @@ theme_set(
 
 pell <- read_csv("data/pell.csv")
 regions <- read_csv("data/region.csv")
+enrollment <- read_csv("data/College_Enrollment_Data.csv")
 
 pell <- pell |>
   drop_na(AWARD)
@@ -111,6 +114,34 @@ pell2 %>%
 (1-3 paragraphs): In the Discussion section, interpret the results of your analysis. Identify any trends revealed (or not revealed) by the plots. Speculate about why the data looks the way it does.
 
 ## Question 2: Title that relates to the question you're answering
+
+For our first visualization, we plan to use a line graph to visualize the proportion of students receiving a pell grant over time in each state. We will do this by having a line for each of the 50 states and having a very low alpha value for most of them, with a few that we want to highlight having a higher alpha level. This will allow us to clearly show a few notable stats over the top of the general trend for all of the states. For our second visualization, we plan to get the coordinates for each college by using a google maps API and then plotting a dot at each college. The dot will be sized based on the amount of pell grant recipients at the school and colored by the proportion of students receiving a pell grant. We then will put a few of these maps side by side each representing a different time period, possibly corresponding to presidential cycle. This will allow us to see trends in states and areas in both amounts of students and proportions.
+
+```{r}
+enrollment <- enrollment[1:51,] |>
+  mutate(state = c("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA",
+           "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA",
+           "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY",
+           "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX",
+           "UT", "VT", "VA", "WA", "WV", "WI", "WY")) |>
+  select(c("Enrollment_2020", "state", "percent_change_from_2010"))
+
+enrollment <- enrollment[, c(2,1,3)]
+
+enrollment <- enrollment |>
+  mutate(percent_change_from_2010 = as.numeric(gsub("\\%", "", percent_change_from_2010,)))
+
+
+
+  
+
+
+  mutate(Enrollment_2010 = (Enrollment_2020 / (1-(percent_change_from_2010/100)))
+
+
+
+```
+
 
 ### Introduction
 
