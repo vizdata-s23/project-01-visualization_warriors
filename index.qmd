@@ -37,7 +37,10 @@ The `pell` data set contains 100470 cases of Pell grant awards and contains 4 mi
 ```{r creation-of-variables}
 #load the region data set + join to original (be sure to account for the territories)
 library(tidyverse)
+pell <- read_csv("data/pell.csv")
 regions <- read_csv("region.csv")
+
+pell2 <- inner_join(pell, regions)
 
 #create the average_pell_grant variable
 ```
