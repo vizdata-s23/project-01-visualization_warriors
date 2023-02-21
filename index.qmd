@@ -40,16 +40,17 @@ library(tidyverse)
 pell <- read_csv("data/pell.csv")
 regions <- read_csv("data/region.csv")
 
-pell2 <- inner_join(pell, regions)
+pell2 <- inner_join(pell, regions) #decided to drop all territories
 
-#create the average_pell_grant variable
-
-pell2
+#began creating the avg_pell_award data
+pell2 %>% 
+  drop_na() %>% 
+  group_by(YEAR) %>% 
+  mutate(AVG_PELL_AWARD = mean(AWARD))
 ```
 
-```{r}
-pell2
-  
+```{visualization-1-time}
+
 
 ```
 
