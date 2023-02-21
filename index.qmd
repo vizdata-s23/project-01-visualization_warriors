@@ -141,9 +141,31 @@ enrollment
 
 enrollment_pell <- inner_join(enrollment, pell, by = "STATE")
 
+enrollment_pell <- enrollment_pell |>
+  mutate(Enrollment_2011 = Enrollment_2010 * (1+(percent_change_from_2010/1000)),
+         Enrollment_2012 = Enrollment_2010 * (1+(2*percent_change_from_2010/1000)),
+         Enrollment_2013 = Enrollment_2010 * (1+(3*percent_change_from_2010/1000)),
+         Enrollment_2014 = Enrollment_2010 * (1+(4*percent_change_from_2010/1000)),
+         Enrollment_2015 = Enrollment_2010 * (1+(5*percent_change_from_2010/1000)),
+         Enrollment_2016 = Enrollment_2010 * (1+(6*percent_change_from_2010/1000)),
+         Enrollment_2017 = Enrollment_2010 * (1+(7*percent_change_from_2010/1000)),
+         Enrollment_2018 = Enrollment_2010 * (1+(8*percent_change_from_2010/1000)),
+         Enrollment_2019 = Enrollment_2010 * (1+(9*percent_change_from_2010/1000)))
 
+enrollment_pell
 
 ```
+
+```{r}
+enrollment_pell_grouped_2010 <- enrollment_pell |>
+  filter(YEAR == 2010) |>
+  group_by(STATE) |>
+  summarise(
+    prop_receiving_pell = sum(RECIPIENT) / sum(Enrollment_2010))
+
+enrollment_pell_grouped
+```
+
 
 
 ### Introduction
