@@ -6,14 +6,27 @@ Codebook:
 
 Our data comes from the 'pell' data set. It has six variables:
 
-State: What US state or US territory the university of the student who received the Pell Grant is located in
+STATE: What US state or US territory the university of the student who received the Pell Grant is located in
 
-Award: The dollar amount that students at that university in that year recieved in Pell Grant aid
+AWARD: The dollar amount that students at that university in that year recieved in Pell Grant aid
 
-Recipient: The number of Pell Grant recipients at that university in that year
+RECIPIENT: The number of Pell Grant recipients at that university in that year
 
-Year: The year that this data is from
+YEAR: The year that this data is from
 
-Session: The school year that the grant was for (such as 2011-2012 school year)
+SESSION: The school year that the grant was for (such as 2011-2012 school year)
 
-Name: The University Name
+NAME: The University Name
+
+We have then added some other variables that are worth noting from external sources
+and knowledge: 
+
+TERM: What presidential term it was, we created this 
+
+long: longitude of college
+
+lat: latitude of college
+
+Enrollment_2020: College enrollment number by state from an external data source
+
+percent_change_from_2010: Percent change of college enrollment number from 2010 to 2020
