@@ -235,6 +235,65 @@ For future analysis, it would be interesting to further explore this .
 
 ## Question 2: Title that relates to the question you're answering
 
+### Introduction
+
+Our second part seeks to answer the question: which states have seen the biggest
+change in the percentage of awarded Pell Grants to total students enrolled in
+university over time?  Our goal with this question is to understand which states
+have seen the greatest or most significant (?) changes in their proportion of
+students receiving pell grants awards over from 1997 to 2017. The variables in 
+the data set we will rely on to answer this question include the state, location
+of the school, the total amount of yearly spell grant recipients, and the year. 
+We will also incorporate (?) enrollment data for the total number of students
+enrolled in university by state for each year, denoted by the variable xxxx.
+With these variables, we hope to understand which states have seen increases,
+decreases, or little change in the proportion of students receiving a Pell grant
+award over time. 
+
+We are interested in exploring this question for many reasons. Firstly, building
+off our previous question, we can see that there is a significant increase over 
+the designated years in the average pell award across all states, collectively. 
+We were interested in further exploring this to see where exactly most of these
+pell awardees go and where they have increased, decreased, or stayed the same 
+over time.  We specifically highlight the states that have the significantly
+memorable proportions of pell grant awardees over time in our first 
+visualization and infer potential reasons for these characteristics. 
+Understanding this will provide a snapshot into where students who receive pell
+grants go, the characteristics of the institutions they choose, and other
+meaningful understanding. 
+
+### Approach
+
+The first visualization is a line graph showcasing the proportion of students
+receiving a pell grant in each state over time. The x-axis is the year and the
+y-axis is the proportion of students receiving a pell grant in each state over
+time. Each state has a line showcasing its trend, however we highlighted the 
+four most interesting states for analysis - Alaska, Wyoming, Delaware, and 
+Idaho. The line for all other states is set to a muted gray color with a low
+transparency. This visualization allows viewers to compare the change in
+proportion of students receiving a pell grant over time for the most noteworthy
+states. It presents all states in order to allow viewers to have a mean of
+comparison and better understand the significance of highlighted states.
+Aesthetic features are carefully considered to avoid clutter and confusion.  
+
+For our second visualization, we 
+plan to get the coordinates for each college by using a google maps API and then
+plotting a dot at each college. The dot will be sized based on the amount of 
+pell grant recipients at the school and colored by the proportion of students
+receiving a pell grant. We then will put a few of these maps side by side each
+representing a different time period, possibly corresponding to presidential 
+cycle. This will allow us to see trends in states and areas in both amounts of
+students and proportions.
+
+### Analysis
+
+(2-3 code blocks, 2 figures, text/code comments as needed): In this section,
+provide the code that generates your plots. Use scale functions to provide nice
+axis labels and guides. You are welcome to use theme functions to customize the
+appearance of your plot, but you are not required to do so. All plots must be 
+made with **ggplot2**. Do not use base R or lattice plotting functions.
+
+
 ```{r}
 enrollment <- enrollment[1:51,] |>
   mutate(STATE = c("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA",
@@ -381,63 +440,6 @@ enrollment_longer |>
 
 ```
 
-### Introduction
-
-Our second part seeks to answer the question: which states have seen the biggest
-change in the percentage of awarded Pell Grants to total students enrolled in
-university over time?  Our goal with this question is to understand which states
-have seen the greatest or most significant (?) changes in their proportion of
-students receiving pell grants awards over from 1997 to 2017. The variables in 
-the data set we will rely on to answer this question include the state, location
-of the school, the total amount of yearly spell grant recipients, and the year. 
-We will also incorporate (?) enrollment data for the total number of students
-enrolled in university by state for each year, denoted by the variable xxxx.
-With these variables, we hope to understand which states have seen increases,
-decreases, or little change in the proportion of students receiving a Pell grant
-award over time. 
-
-We are interested in exploring this question for many reasons. Firstly, building
-off our previous question, we can see that there is a significant increase over 
-the designated years in the average pell award across all states, collectively. 
-We were interested in further exploring this to see where exactly most of these
-pell awardees go and where they have increased, decreased, or stayed the same 
-over time.  We specifically highlight the states that have the significantly
-memorable proportions of pell grant awardees over time in our first 
-visualization and infer potential reasons for these characteristics. 
-Understanding this will provide a snapshot into where students who receive pell
-grants go, the characteristics of the institutions they choose, and other
-meaningful understanding. 
-
-### Approach
-
-From the raw data set, we will use the state in which the school is located, the total amount of Pell grant recipients for each year, and the year. We will
-summarize the data to just get the amount of Pell recipients by state by year.
-From there, we will incorporate enrollment data for the total amount of students enrolled in university by state by year. With that data, we will be able to
-calculate the proportion of students who are enrolled in university receiving a
-Pell Grant by dividing amount of recipients by state by year by total undergrads
-enrolled by state by year.
-
-For our first visualization, we plan to use a line graph to visualize the
-proportion of students receiving a pell grant over time in each state. We will 
-do this by having a line for each of the 50 states and having a very low alpha
-value for most of them, with a few that we want to highlight having a higher 
-alpha level. This will allow us to clearly show a few notable stats over the top 
-of the general trend for all of the states. For our second visualization, we 
-plan to get the coordinates for each college by using a google maps API and then
-plotting a dot at each college. The dot will be sized based on the amount of 
-pell grant recipients at the school and colored by the proportion of students
-receiving a pell grant. We then will put a few of these maps side by side each
-representing a different time period, possibly corresponding to presidential 
-cycle. This will allow us to see trends in states and areas in both amounts of
-students and proportions.
-
-### Analysis
-
-(2-3 code blocks, 2 figures, text/code comments as needed): In this section,
-provide the code that generates your plots. Use scale functions to provide nice
-axis labels and guides. You are welcome to use theme functions to customize the
-appearance of your plot, but you are not required to do so. All plots must be 
-made with **ggplot2**. Do not use base R or lattice plotting functions.
 
 ### Discussion
 
