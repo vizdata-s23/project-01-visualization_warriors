@@ -18,6 +18,9 @@ SESSION: The school year that the grant was for (such as 2011-2012 school year)
 
 NAME: The University Name
 
+We have then added some other variables that are worth noting from external sources
+and knowledge: 
+
 TERM: What presidential term it was, we created this 
 
 long: longitude of college
