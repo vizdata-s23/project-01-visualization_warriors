@@ -137,7 +137,7 @@ enrollment
 
 enrollment_pell <- inner_join(enrollment, pell, by = "STATE")
 
-<<<<<<< HEAD
+
 enrollment_pell <- enrollment_pell |>
   mutate(Enrollment_2011 = Enrollment_2010 * (1+(percent_change_from_2010/1000)),
          Enrollment_2012 = Enrollment_2010 * (1+(2*percent_change_from_2010/1000)),
@@ -148,19 +148,10 @@ enrollment_pell <- enrollment_pell |>
          Enrollment_2017 = Enrollment_2010 * (1+(7*percent_change_from_2010/1000)),
          Enrollment_2018 = Enrollment_2010 * (1+(8*percent_change_from_2010/1000)),
          Enrollment_2019 = Enrollment_2010 * (1+(9*percent_change_from_2010/1000)))
-=======
-  
-
-
-mutate(Enrollment_2010 = (Enrollment_2020 / (1-(percent_change_from_2010/100)))
-
->>>>>>> dbf287c (merge fix)
-
-enrollment_pell
 
 ```
 
-<<<<<<< HEAD
+
 ```{r}
 enrollment_pell_grouped_2010 <- enrollment_pell |>
   filter(YEAR == 2010) |>
@@ -246,8 +237,8 @@ employment_pell_grouped_all
 
 
 
-=======
->>>>>>> dbf287c (merge fix)
+
+dbf287c (merge fix)
 ### Introduction
 
 (1-2 paragraphs): Introduction to the question and what parts of the dataset are necessary to answer the question. Also discuss why you're interested in this question.
