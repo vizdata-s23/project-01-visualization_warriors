@@ -100,7 +100,6 @@ pell_map <- pell_map |>
 ```
 
 ```{r create q1-plot1}
-#| label: Figure-1
 #| fig.width = 8, fig.asp = 0.5
 #Used information from https://www.datanovia.com/en/blog/how-to-create-a-map-using-ggplot2/ to create map
 
