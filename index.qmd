@@ -21,8 +21,6 @@ The `pell` data set contains 100470 cases of Pell grant awards and contains 4 mi
 
 ## Change in Average Pell Grant Award Over Time
 
-## Question 1: Need title.
-
 ### Introduction
 
 The first question we will be answering is: How does the average Pell grant award change over time based on the geographic region? In order to answer this question, we will rely on the variables `STATE`, `YEAR`, `AWARD`, and `RECIPIENT` while also creating two additional variables" the **`AVG_PELL_AWARD`** for each school and the **`REGION`.** We are interested in exploring trends by state and by region, outlined by the US Census are the Northeast, Southwest, West, Southeast, Midwest and US Territory. Our goal with this research question is to understand how average Pell grant award distributions vary across different geographic regions eligible for pell grant funding on a year by year basis.
