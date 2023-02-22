@@ -45,15 +45,13 @@ knitr::opts_chunk$set(
 # Load your data here
 ```
 
-# Using Quarto for presentations
-
-## Quarto
+## Intro: the `pell` data set.
 
 -   The presentation is created using the Quarto CLI
 
 -   `##` sets the start of a new slide
 
-## Layouts
+## Our Research Question + Goal
 
 You can use plain text
 
@@ -76,7 +74,67 @@ or text in two columns $^*$
 \[\*\] And add footnotes
 :::
 
-## Code
+# Question 1: 
+
+## How does the average Pell grant award change over time based on the geographic region?
+
+-   a
+
+-   b
+
+## Visualizaition \# 1
+
+```{r}
+#visualization # 1
+```
+
+## Key Takeaways
+
+-   b
+
+-   b
+
+## Visualizaition \# 2
+
+```{r}
+#visualization # 1
+```
+
+## Key Takeaways #2
+
+-   b
+
+-   b
+
+# Question 2:
+
+## How does the average Pell grant award change over time based on the geographic region?
+
+## Visualizaition \# 1
+
+```{r}
+#visualization # 1
+```
+
+## Key Takeaways/Conclusion
+
+-   b
+
+-   b
+
+## Visualizaition \# 2
+
+```{r}
+#visualization # 1
+```
+
+## Key Takeaways/Conclusion #2
+
+-   b
+
+-   b
+
+## Overall Conclusions
 
 ```{r}
 #| label: boring-regression
