@@ -47,64 +47,70 @@ knitr::opts_chunk$set(
 
 ## Intro: the `pell` data set.
 
--   The presentation is created using the Quarto CLI
+-   Contains information on Pell Grant awards to U.S. college students from 1999-2017
 
--   `##` sets the start of a new slide
+-   Compilation of yearly data sets collected by U.S. Department of Education
+
+-   6 columns: State, Award, Recipient, Name, Session, Year
 
 ## Our Research Question + Goal
 
-You can use plain text
+-   Goal is to understand how average Pell grant award varies across different regions throughout time
+-   Goal is to understand which states have seen greatest changes in proportion of students receiving Pell grants over 1997 to 2017.
 
--   or bullet points
-
-::: columns
-::: {.column width="50%"}
-or text in two columns $^*$
-:::
-
-::: {.column width="50%"}
--   like
--   this
-:::
-:::
-
-### 
-
-::: aside
-\[\*\] And add footnotes
-:::
-
-# Question 1: 
+# Question 1:
 
 ## How does the average Pell grant award change over time based on the geographic region?
 
--   a
+-   Created two additional variables: **average pell grant** per school and **region**.
 
--   b
+-   **Spatial** **graph** showing average pell grant award across presidential terms for individual states in U.S.
 
-## Visualizaition \# 1
+-   **Line** **graph** which explores time series progression of pell grant awards by region.
+
+## Visualization \# 1
 
 ```{r}
 #visualization # 1
+ggplot(pell_map, aes(long, lat, group = group)) + 
+  geom_polygon(aes(fill = AVG_PELL_AWARD), color = "white") + 
+  facet_wrap(~TERM) +
+  scale_fill_continuous(name = "Average Pell Grant Size")
+  labs(fill = "Average Award ($)",
+       title = "Consistent State-by-State Upward Trend Across Presidencies")
 ```
 
 ## Key Takeaways
 
--   b
+-   Not much variation across states
 
--   b
+-   Sharp increase in average award over time
 
-## Visualizaition \# 2
+-   Tuition increasing and inflation.
+
+## Visualization \# 2
 
 ```{r}
 #visualization # 1
+ggplot(pell_grouped2, aes(x = YEAR, y = AVG_PELL_AWARD,
+                          group = REGION, color = REGION)) + 
+  geom_line() +
+  theme_minimal() +
+  scale_color_manual(values = wes_palette("Moonrise2", n = 4)) + 
+  scale_x_continuous(breaks = seq(from = 2000, to = 2018, by = 4)) +
+  labs(title = "Upward Trend in Average Pell Grant", 
+       subtitle = "Grouped by Region", 
+       x = "Year", 
+       y = "Average Pell Award ($)")
 ```
 
 ## Key Takeaways #2
 
--   b
+-   Northeast has highest average award, while Midwest has lowest.
 
--   b
+-   Consistent trend across regions
+
+-   Pell grant is federal financial aid.
 
 # Question 2:
 
@@ -114,6 +120,7 @@ or text in two columns $^*$
 
 ```{r}
 #visualization # 1
+
 ```
 
 ## Key Takeaways/Conclusion
