@@ -6,6 +6,7 @@ format: html
 editor: visual
 execute: 
   echo: False
+  warning: False
 ---
 
 ## Abstract
@@ -18,13 +19,9 @@ The `pell` data set was featured on TidyTuesday in 2022. It contains information
 
 The `pell` data set contains 100470 cases of Pell grant awards and contains 4 missing values. It explores the award amount in each school for each respective year represented in the data set. The variables in this data set include the state in which the school's located, the total Pell grant award the school gave, the number of students at the school who received a Pell grant, the name of the school, the session year, and the year. Specifically, the variables `NAME`, `FACTOR`, and `SESSION` are all factor variables while the other variables are numeric. There are some important notes to keep in mind when interpreting the data set. Firstly, the variable `STATE` includes both US states and territories, meaning there are more than 50 possible observation types. Finally, the difference between `SESSION` and `YEAR` is that `SESSION` indicates the academic school year (which is between two numeric years)
 
-<<<<<<< HEAD
-\
-
 ## Change in Average Pell Grant Award Over Time
-=======
+
 ## Question 1: Need title.
->>>>>>> 840328c449de408328be39ae8fc54e6bdd763ea8
 
 ### Introduction
 
@@ -103,19 +100,16 @@ pell_map <- pell_map |>
 ```
 
 ```{r create q1-plot1}
-<<<<<<< HEAD
 #| label: Figure-1
-=======
+#| fig.width = 8, fig.asp = 0.5
 #Used information from https://www.datanovia.com/en/blog/how-to-create-a-map-using-ggplot2/ to create map
->>>>>>> 840328c449de408328be39ae8fc54e6bdd763ea8
+
 ggplot(pell_map, aes(long, lat, group = group)) + 
   geom_polygon(aes(fill = AVG_PELL_AWARD), color = "white") +
   scale_fill_gradient(low = "light green", high = "dark green") +
   facet_wrap(~TERM) +
   labs(fill = "Average Award ($)",
-       title = "Consistent State-by-State Upward Trend Across Presidencies") + 
-  theme(plot.title = element_text(vjust = 10), 
-        plot.subtitle = element_text(vjust = 9))
+       title = "Consistent State-by-State Upward Trend Across Presidencies")
 ```
 
 ```{r joinwork}
@@ -152,9 +146,9 @@ ggplot(pell_grouped2, aes(x = YEAR, y = AVG_PELL_AWARD,
 
 ### Discussion
 
-In Part I, we were interested in exploring how the average pell grant awards changed over time based on geographic region and through the creation of two visualizations, we were able to explore this and explanations for the general trends. In the first plot @Figure-1, we explored the average Pell grant change for each state in the United States for each of the presidential terms in the 1999-2017 year period. Based on the visualization, we can see that over time, the average pell grant awarded in the United States increased by each presidential term, meaning that a greater amount of money per year is being allocated by the federal government for pell grant eligible students. The most drastic difference seems to be in between the 2005-2008 Bush Administration and the 2009-2012 Obama Administration and this could be due to the passing of The Health Care and Education Reconciliation Act ([source](https://obamawhitehouse.archives.gov/issues/education/higher-education/investing-in-pell-grants-to-make-college-affordable)) in which Obama dedicated \$40 Bn USD to increasing Pell grants in the United States. Across presidential terms there are comparatively low amounts of pell grants in the states Nevada and Minnesota, contrasting comparatively high amounts of pell grants in New York and Mississippi. Maybe relate this to the presidential term.
+In Part I, we were interested in exploring how the average pell grant awards changed over time based on geographic region and through the creation of two visualizations, we were able to explore this and explanations for the general trends. In the first plot Figure 1, we explored the average Pell grant change for each state in the United States for each of the presidential terms in the 1999-2017 year period. Based on the visualization, we can see that over time, the average pell grant awarded in the United States increased by each presidential term, meaning that a greater amount of money per year is being allocated by the federal government for pell grant eligible students. The most drastic difference seems to be in between the 2005-2008 Bush Administration and the 2009-2012 Obama Administration and this could be due to the passing of The Health Care and Education Reconciliation Act ([source](https://obamawhitehouse.archives.gov/issues/education/higher-education/investing-in-pell-grants-to-make-college-affordable)) in which Obama dedicated \$40 Bn USD to increasing Pell grants in the United States. Across presidential terms there are comparatively low amounts of pell grants in the states Nevada and Minnesota, contrasting comparatively high amounts of pell grants in New York and Mississippi. Maybe relate this to the presidential term.
 
-In the second plot @Figure-2, we can see that the average Pell grant award increased over from 1999-2017 for all regions of the United States. This can be attributed to multiple factors including inflation (both generally and specific to higher education tuition), increasing completion of higher education, as well as increasing fiscal spending over time. Again, we can see a collective spike in 2010 that can be explained by the passing of The Health Care and Education Reconciliation Act in 2010 by the Obama Administration, positively supporting pell grant distributions across all regions of the United States. This figure also makes clear that the average Pell grant award over the last twenty years has doubled. In addition to this, despite the similar trend, we can see that the highest average pell grant award was seen in the Northeast and the lowest was in the Midwest. This could be due to the fact that there are a greater number of students and universities in the Northeast than in the Midwest. Notably, we can see in this figure that in 2010, the average pell grant award for the Midwest was the highest. This could be due to the pell grant program expansion's popularity in increasing access to college education for a significant amount of students in the Midwest. 
+In Figure 2, we can see that the average Pell grant award increased over from 1999-2017 for all regions of the United States. This can be attributed to multiple factors including inflation (both generally and specific to higher education tuition), increasing completion of higher education, as well as increasing fiscal spending over time. Again, we can see a collective spike in 2010 that can be explained by the passing of The Health Care and Education Reconciliation Act in 2010 by the Obama Administration, positively supporting pell grant distributions across all regions of the United States. This figure also makes clear that the average Pell grant award over the last twenty years has doubled. In addition to this, despite the similar trend, we can see that the highest average pell grant award was seen in the Northeast and the lowest was in the Midwest. This could be due to the fact that there are a greater number of students and universities in the Northeast than in the Midwest. Notably, we can see in this figure that in 2010, the average pell grant award for the Midwest was the highest. This could be due to the pell grant program expansion's popularity in increasing access to college education for a significant amount of students in the Midwest. 
 
 What these two visualizations, both independently and together, do not clearly show us is the role of presidential political affiliation in the Pell Grant investment amount. While we are able to infer that Pell grants increase over time, we are not clearly able to see the difference between presidential terms. For future analysis, it would be interesting to further explore this .
 
@@ -338,6 +332,7 @@ enrollment_longer |>
 ```
 
 ```{r q2-visual2}
+#| fig.width = 9, fig.asp = 0.4
 
 map_enroll_longer <- inner_join(pell_map, enrollment_longer, by = "STATE")
 
@@ -354,14 +349,13 @@ map_enroll_longer_filt |>
     facet_wrap(~year) + 
   labs(title = "Proportion of Those Receiving Pell Grants by State in 2010 and 2017",
        subtitle = "Smaller Proportion of Students are Receiving Pell Grants in 2017") +
-  scale_fill_continuous(name = "Proportion of Students\nReceiving Pell Grants") + 
-  scale_fill_gradient(low = "light green", high = "dark green") + 
-  theme(plot.title = element_text(vjust = 10), 
-        plot.subtitle = element_text(vjust = 9))
+  scale_fill_gradient(name ="Proportion of Students\nReceiving Pell Grants", 
+                      low = "light green", 
+                      high = "dark green")
   
 ```
 
-### Discussion: 
+### Discussion:
 
 In part II, we were interested in exploring the which states have seen the biggest change in the percentage of Pell grant awards to total students enrolled in university over time. Our visualizations provided us with meaningful reasons for why.
 
