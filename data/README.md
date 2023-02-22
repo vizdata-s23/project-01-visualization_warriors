@@ -23,9 +23,9 @@ and knowledge:
 
 TERM: What presidential term it was, we created this 
 
-long: longitude of college
+long: Longitude of college's location
 
-lat: latitude of college
+lat: Latitude of college's location
 
 Enrollment_2020: College enrollment number by state from an external data source
 
