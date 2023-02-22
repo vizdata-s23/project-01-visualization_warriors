@@ -73,9 +73,9 @@ knitr::opts_chunk$set(
 ```{r}
 #visualization # 1
 ggplot(pell_map, aes(long, lat, group = group)) + 
-  geom_polygon(aes(fill = AVG_PELL_AWARD), color = "white") + 
+  geom_polygon(aes(fill = AVG_PELL_AWARD), color = "white") +
+  scale_fill_gradient(low = "light green", high = "dark green") +
   facet_wrap(~TERM) +
-  scale_fill_continuous(name = "Average Pell Grant Size")
   labs(fill = "Average Award ($)",
        title = "Consistent State-by-State Upward Trend Across Presidencies")
 ```
