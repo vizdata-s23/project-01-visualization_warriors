@@ -8,7 +8,12 @@ editor: visual
 
 ## Abstract
 
-(1 paragraph): Project abstract.
+As college students, we have a firsthand understanding of the impact receiving 
+a pell grant can have on one's financial situation and educational opportunity. 
+In this project, we first explore how the average pell grant award has changed 
+over time across regions. We then explore which states have seen the greatest 
+change in the percentage of awarded pell grants to total students enrolled in
+university over time. 
 
 ## Introduction
 
@@ -210,8 +215,9 @@ and Mississippi. Maybe relate this to the presidential term.
 
 In the second plot (figure 2), we can see that the average Pell grant award
 increased over from 1999-2017 for all regions of the United States. This can be
-attributed to multiple factors including inflation, increasing completion of 
-higher education, as well as increasing fiscal spending over time. Again, we can
+attributed to multiple factors including inflation (both generally and specific
+to higher education tuition), increasing completion of higher education, as well
+as increasing fiscal spending over time. Again, we can
 see a collective spike in 2010 that can be explained by the passing of The 
 Health Care and Education Reconciliation Act in 2010 by the Obama 
 Administration, positively supporting pell grant distributions across all 
