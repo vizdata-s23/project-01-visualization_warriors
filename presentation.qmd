@@ -61,7 +61,6 @@ knitr::opts_chunk$set(
   )
 ```
 
-
 ```{r}
 #| label: code-for-first-viz
 #| include: false
@@ -266,7 +265,7 @@ high_enroll_dif <- enrollment_longer |>
 
 -   Goal is to understand average Pell grant award distribution over time, explore reasoning for these patterns, and learn how this relates to higher education.
 
-# Question 1:
+# Change in Average Pell Grant Award Over Time
 
 ## How does the average Pell grant award change over time based on the geographic region?
 
@@ -306,9 +305,9 @@ ggplot(pell_map, aes(long, lat, group = group)) +
        y = "Average Pell Award ($)")
 ```
 
-# Question 2:
+# Change in Proportion of Students Receiving Pell Grants Over Time
 
-## How does the average Pell grant award change over time based on the geographic region?
+## How has the proportion of students receiving Pell Grants changed over time across states?
 
 -   Which states have seen greatest changes in their proportion of students receiving awards over time.
 
