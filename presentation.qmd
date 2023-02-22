@@ -61,12 +61,6 @@ knitr::opts_chunk$set(
   )
 ```
 
-```{r}
-#| label: load-data
-#| include: false
-
-
-```
 
 ```{r}
 #| label: code-for-first-viz
@@ -127,8 +121,7 @@ pell_grouped2 <- pell2 |>
   group_by(REGION, YEAR) %>%
   summarise(
     total_award = sum(AWARD),
-    total_recipients = sum(RECIPIENT)
-    ) %>%
+    total_recipients = sum(RECIPIENT)) %>%
   mutate(AVG_PELL_AWARD = total_award/total_recipients)
 
 ```
@@ -170,7 +163,7 @@ enrollment_pell_grouped_2010 <- enrollment_pell |>
   summarise(
     prop_receiving_pell_2010 = sum(RECIPIENT) / Enrollment_2010)
 
-enrollment_pell_grouped_2010 <- enrollment_pell_grouped_2010[!duplicated(enrollment_pell_grouped_2010$STATE), ]
+enrollment_pell_grouped_2010 <- enrollment_pell_grouped_2010[!duplicated(enrollment_pell_grouped_2010$STATE),]
 
 enrollment_pell_grouped_2011 <- enrollment_pell |>
   filter(YEAR == 2011) |>
@@ -178,7 +171,7 @@ enrollment_pell_grouped_2011 <- enrollment_pell |>
   summarise(
     prop_receiving_pell_2011 = sum(RECIPIENT) / (Enrollment_2011))
 
-enrollment_pell_grouped_2011 <- enrollment_pell_grouped_2011[!duplicated(enrollment_pell_grouped_2011$STATE), ]
+enrollment_pell_grouped_2011 <- enrollment_pell_grouped_2011[!duplicated(enrollment_pell_grouped_2011$STATE),]
 
 
 enrollment_pell_grouped_2012 <- enrollment_pell |>
@@ -187,7 +180,7 @@ enrollment_pell_grouped_2012 <- enrollment_pell |>
   summarise(
     prop_receiving_pell_2012 = sum(RECIPIENT) / (Enrollment_2012))
 
-enrollment_pell_grouped_2012 <- enrollment_pell_grouped_2012[!duplicated(enrollment_pell_grouped_2012$STATE), ]
+enrollment_pell_grouped_2012 <- enrollment_pell_grouped_2012[!duplicated(enrollment_pell_grouped_2012$STATE),]
 
 
 enrollment_pell_grouped_2013 <- enrollment_pell |>
@@ -196,7 +189,7 @@ enrollment_pell_grouped_2013 <- enrollment_pell |>
   summarise(
     prop_receiving_pell_2013 = sum(RECIPIENT) / (Enrollment_2012))
 
-enrollment_pell_grouped_2013 <- enrollment_pell_grouped_2013[!duplicated(enrollment_pell_grouped_2013$STATE), ]
+enrollment_pell_grouped_2013 <- enrollment_pell_grouped_2013[!duplicated(enrollment_pell_grouped_2013$STATE),]
 
 enrollment_pell_grouped_2014 <- enrollment_pell |>
   filter(YEAR == 2014) |>
@@ -204,7 +197,7 @@ enrollment_pell_grouped_2014 <- enrollment_pell |>
   summarise(
     prop_receiving_pell_2014 = sum(RECIPIENT) / (Enrollment_2014))
 
-enrollment_pell_grouped_2014 <- enrollment_pell_grouped_2014[!duplicated(enrollment_pell_grouped_2014$STATE), ]
+enrollment_pell_grouped_2014 <- enrollment_pell_grouped_2014[!duplicated(enrollment_pell_grouped_2014$STATE),]
 
 enrollment_pell_grouped_2015 <- enrollment_pell |>
   filter(YEAR == 2015) |>
@@ -212,7 +205,7 @@ enrollment_pell_grouped_2015 <- enrollment_pell |>
   summarise(
     prop_receiving_pell_2015 = sum(RECIPIENT) / (Enrollment_2015))
 
-enrollment_pell_grouped_2015 <- enrollment_pell_grouped_2015[!duplicated(enrollment_pell_grouped_2015$STATE), ]
+enrollment_pell_grouped_2015 <- enrollment_pell_grouped_2015[!duplicated(enrollment_pell_grouped_2015$STATE),]
 
 
 enrollment_pell_grouped_2016 <- enrollment_pell |>
@@ -221,7 +214,7 @@ enrollment_pell_grouped_2016 <- enrollment_pell |>
   summarise(
     prop_receiving_pell_2016 = sum(RECIPIENT) / (Enrollment_2016))
 
-enrollment_pell_grouped_2016 <- enrollment_pell_grouped_2016[!duplicated(enrollment_pell_grouped_2016$STATE), ]
+enrollment_pell_grouped_2016 <- enrollment_pell_grouped_2016[!duplicated(enrollment_pell_grouped_2016$STATE),]
 
 
 enrollment_pell_grouped_2017 <- enrollment_pell |>
@@ -230,19 +223,25 @@ enrollment_pell_grouped_2017 <- enrollment_pell |>
   summarise(
     prop_receiving_pell_2017 = sum(RECIPIENT) / (Enrollment_2017))
 
-enrollment_pell_grouped_2017 <- enrollment_pell_grouped_2017[!duplicated(enrollment_pell_grouped_2017$STATE), ]
+enrollment_pell_grouped_2017 <- enrollment_pell_grouped_2017[!duplicated(enrollment_pell_grouped_2017$STATE),]
 
 
-list_dfs = list(enrollment_pell_grouped_2010, enrollment_pell_grouped_2011, enrollment_pell_grouped_2012, enrollment_pell_grouped_2013,
-                                          enrollment_pell_grouped_2014, enrollment_pell_grouped_2015, enrollment_pell_grouped_2016, enrollment_pell_grouped_2017)
+list_dfs = list(enrollment_pell_grouped_2010, 
+                enrollment_pell_grouped_2011, 
+                enrollment_pell_grouped_2012, 
+                enrollment_pell_grouped_2013,
+                enrollment_pell_grouped_2014, 
+                enrollment_pell_grouped_2015, 
+                enrollment_pell_grouped_2016, 
+                enrollment_pell_grouped_2017)
 
-enrollment_pell_grouped_all <- list_dfs %>% reduce(inner_join, by='STATE')
+enrollment_pell_grouped_all <- list_dfs %>% 
+  reduce(inner_join, by='STATE')
 
 enrollment_longer <- enrollment_pell_grouped_all |>
   pivot_longer(cols = contains("20")) |>
   mutate(year = str_sub(name, start= -4),
-         proportion_receiving_pell = value,
-         State = STATE) |>
+         proportion_receiving_pell = value) |>
   select(1,4,5)
 
 
@@ -336,14 +335,10 @@ enrollment_longer |>
        y = "Proportion of Students Receiving a Pell Grant",
        caption = "Amount of students enrolled is Interpolated from 2010 and 2020 data"
        ) + 
-  annotate("text", x=3.4, y=.65, label= "Arizona", color = '#667C74',
-           size = 4) + 
-  annotate("text", x=2, y=.447, label= "Indiana", color = '#1F1917',
-           size = 4) + 
-  annotate("text", x=2.2, y=.55, label= "Iowa", color = '#B36A2B',
-           size = 4) +
-  annotate("text", x=2, y=.63, label= "Idaho", color = '#C1BA7F',
-           size = 4) + 
+  annotate("text", x=3.4, y=.65, label= "Arizona", color = '#667C74',size = 4) + 
+  annotate("text", x=2, y=.447, label= "Indiana", color = '#1F1917', size = 4) + 
+  annotate("text", x=2.2, y=.55, label= "Iowa", color = '#B36A2B', size = 4) +
+  annotate("text", x=2, y=.63, label= "Idaho", color = '#C1BA7F', size = 4) + 
   theme(plot.caption = element_text(hjust = 0))
 
 
@@ -379,13 +374,10 @@ map_enroll_longer_filt |>
 
 ## Overall Conclusions
 
-<<<<<<< HEAD
-=======
 -   Overall increase in amount of money awarded in pell grants over time.
 
 -   General decrease in the proportion of students receiving pell grants over time.
 
 -   This contradiction is likely due to increasing tuition costs over time.
 
->>>>>>> 1943414808e3f7b2aff41eaf1d4c8458e50607f4
 # Thank You!
