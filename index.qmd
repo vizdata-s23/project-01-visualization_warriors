@@ -45,8 +45,6 @@ library(ggplot2)
 library(tidyverse)
 require(maps)
 require(viridis)
-install.packages("ISLR")
-library(ISLR)
 theme_set(
   theme_void()
 )
@@ -161,9 +159,82 @@ enrollment_pell_grouped_2010 <- enrollment_pell |>
   filter(YEAR == 2010) |>
   group_by(STATE) |>
   summarise(
-    prop_receiving_pell = sum(RECIPIENT) / sum(Enrollment_2010))
+    prop_receiving_pell_2010 = sum(RECIPIENT) / sum(Enrollment_2010))
 
-enrollment_pell_grouped
+
+enrollment_pell_grouped_2011 <- enrollment_pell |>
+  filter(YEAR == 2011) |>
+  group_by(STATE) |>
+  summarise(
+    prop_receiving_pell_2011 = sum(RECIPIENT) / sum(Enrollment_2011))
+
+
+enrollment_pell_grouped_2012 <- enrollment_pell |>
+  filter(YEAR == 2012) |>
+  group_by(STATE) |>
+  summarise(
+    prop_receiving_pell_2012 = sum(RECIPIENT) / sum(Enrollment_2012))
+
+enrollment_pell_grouped_2013 <- enrollment_pell |>
+  filter(YEAR == 2013) |>
+  group_by(STATE) |>
+  summarise(
+    prop_receiving_pell_2013 = sum(RECIPIENT) / sum(Enrollment_2012))
+
+
+enrollment_pell_grouped_2014 <- enrollment_pell |>
+  filter(YEAR == 2014) |>
+  group_by(STATE) |>
+  summarise(
+    prop_receiving_pell_2014 = sum(RECIPIENT) / sum(Enrollment_2014))
+
+enrollment_pell_grouped_2015 <- enrollment_pell |>
+  filter(YEAR == 2015) |>
+  group_by(STATE) |>
+  summarise(
+    prop_receiving_pell_2015 = sum(RECIPIENT) / sum(Enrollment_2015))
+
+
+enrollment_pell_grouped_2016 <- enrollment_pell |>
+  filter(YEAR == 2016) |>
+  group_by(STATE) |>
+  summarise(
+    prop_receiving_pell_2016 = sum(RECIPIENT) / sum(Enrollment_2016))
+
+
+enrollment_pell_grouped_2017 <- enrollment_pell |>
+  filter(YEAR == 2017) |>
+  group_by(STATE) |>
+  summarise(
+    prop_receiving_pell_2017 = sum(RECIPIENT) / sum(Enrollment_2017))
+
+enrollment_pell_grouped_2018 <- enrollment_pell |>
+  filter(YEAR == 2018) |>
+  group_by(STATE) |>
+  summarise(
+    prop_receiving_pell_2018 = sum(RECIPIENT) / sum(Enrollment_2018))
+
+
+enrollment_pell_grouped_2019 <- enrollment_pell |>
+  filter(YEAR == 2019) |>
+  group_by(STATE) |>
+  summarise(
+    prop_receiving_pell_2019 = sum(RECIPIENT) / sum(Enrollment_2019))
+
+
+enrollment_pell_grouped_2020 <- enrollment_pell |>
+  filter(YEAR == 2020) |>
+  group_by(STATE) |>
+  summarise(
+    prop_receiving_pell_2020 = sum(RECIPIENT) / sum(Enrollment_2020))
+
+
+list_dfs = list(enrollment_pell_grouped_2010, enrollment_pell_grouped_2011, enrollment_pell_grouped_2012, enrollment_pell_grouped_2013,
+                                          enrollment_pell_grouped_2014, enrollment_pell_grouped_2015, enrollment_pell_grouped_2016, enrollment_pell_grouped_2017, enrollment_pell_grouped_2018, enrollment_pell_grouped_2019, enrollment_pell_grouped_2020)
+
+employment_pell_grouped_all <- list_dfs %>% reduce(outer, by='STATE')
+
+employment_pell_grouped_all
 ```
 
 
