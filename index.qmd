@@ -16,8 +16,6 @@ The `pell` data set was featured on TidyTuesday in 2022. It contains information
 
 The `pell` data set contains 100470 cases of Pell grant awards and contains 4 missing values. It explores the award amount in each school for each respective year represented in the data set. The variables in this data set include the state in which the school's located, the total Pell grant award the school gave, the number of students at the school who received a Pell grant, the name of the school, the session year, and the year. Specifically, the variables `NAME`, `FACTOR`, and `SESSION` are all factor variables while the other variables are numeric. There are some important notes to keep in mind when interpreting the data set. Firstly, the variable `STATE` includes both US states and territories, meaning there are more than 50 possible observation types. Finally, the difference between `SESSION` and `YEAR` is that `SESSION` indicates the academic school year (which is between two numeric years)
 
-\
-
 ## Question 1: Need title.
 
 ### Introduction
@@ -30,7 +28,7 @@ We are interested in this question for many reasons. Firstly, we are interested 
 
 In order to understand how Pell grant awards change over time based on the geographic region, we created two visualizations that rely on the mutation of two additional variables which are `average_pell_grant` per school and `region`.
 
-The first visualization is a spatial graph showcasing the average pell grant award across presidencies. It displays 6 maps of the United States (one for each presidential term) with each state colored based upon the average pell grant award in that state for the respective presidential term. This is the best way to visualize this information. In order to compare all 50 states at once, the only visually appealing way that is not overcrowded is a map. Showcasing 6 different maps to display change over time allows for simple comparison without overcrowding.
+The first visualization is a spatial graph showcasing the average pell grant award across presidencies. It displays 6 maps of the United States (one for each presidential term) with each state colored based upon the average pell grant award in that state for the respective presidential term. This is the best way to visualize this information. In order to compare all 50 states at once, the only visually appealing way that is not overcrowded is a map. Additionally, the highest percentage of students that attend a college in a given state are from that state. Therefore, most students and families may be interested in learning about cost and grants at a state-by-state level, rather than large region. This is why we implemented state-wide information. Also, showcasing 6 different maps to display change over time allows for simple comparison without overcrowding.
 
 Our second visualization is a line graph which explores the time series progression of pell grant awards by region. Time (by year) will be on the x-axis and `average pell grant` award is on the y-axis, faceted by region. A line graph best represents the information we are seeking to understand in our research question because it provides a clear, year-to-year representation of pell grant awards for each region and allows us to visually observe the changes for each region of the United States. We chose to make the line breaks on the x-axis the year of presidential elections as we hypothesized that these years would have the most dramatic differences.
 
@@ -41,6 +39,7 @@ Our second visualization is a line graph which explores the time series progress
 ```{r load-packages}
 library(ggplot2)
 library(tidyverse)
+#Used information from https://www.datanovia.com/en/blog/top-r-color-palettes-to-know-for-great-data-visualization to get color palettes for line graphs
 library(wesanderson)
 require(maps)
 require(viridis)
@@ -56,9 +55,11 @@ pell <- read_csv("data/pell.csv")
 regions <- read_csv("data/region.csv")
 enrollment <- read_csv("data/College_Enrollment_Data.csv")
 
+#drop NA values
 pell <- pell |>
   drop_na(AWARD)
 
+#create term variable
 pell <- pell |>
   mutate(TERM = case_when(
     YEAR %in% c(1999, 2000) ~ 'Clinton (1999-2000)',
@@ -75,6 +76,7 @@ pell <- pell |>
                      )
   )
 
+#group dataset by state and term, then calculate average pell award for each state and term
 pell_grouped <- pell |>
   group_by(STATE, TERM) %>%
   summarise(
@@ -83,6 +85,7 @@ pell_grouped <- pell |>
     ) %>%
   mutate(AVG_PELL_AWARD = total_award/total_recipients)
 
+#Used information from https://stackoverflow.com/questions/5411979 to transform state names to abbreviations
 map_state <- map_data("state")
 map_state$region <- str_to_title(map_state$region)
 map_state$STATE <- state.abb[match(map_state$region, state.name)]
@@ -94,6 +97,7 @@ pell_map <- pell_map |>
 ```
 
 ```{r create q1-plot1}
+#Used information from https://www.datanovia.com/en/blog/how-to-create-a-map-using-ggplot2/ to create map
 ggplot(pell_map, aes(long, lat, group = group)) + 
   geom_polygon(aes(fill = AVG_PELL_AWARD), color = "white") +
   scale_fill_gradient(low = "light green", high = "dark green") +
@@ -105,11 +109,12 @@ ggplot(pell_map, aes(long, lat, group = group)) +
 ```{r}
 pell2 <- left_join(pell, regions, by = "STATE") #decided to drop all territories
 
-#began creating the avg_pell_award data
+#drop NA values, which got rid of U.S. territories (Puerto Rico)
 
 pell2 <- pell2 |>
   drop_na(REGION)
 
+#group dataset by region and year, then calculate average pell award for each region and year
 pell_grouped2 <- pell2 |>
   group_by(REGION, YEAR) %>%
   summarise(
