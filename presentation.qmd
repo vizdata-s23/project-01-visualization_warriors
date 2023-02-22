@@ -1,5 +1,5 @@
 ---
-title: "Pell Grant Statistics"
+title: "Exploring Pell Grant Awards"
 subtitle: "STA/ISS 313 - Spring 2023 - Project 1"
 author: "Visualization Warriors"
 title-slide-attributes:
@@ -62,7 +62,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
-#| label: code-for-first-viz
+#| label: data wrangling setting up presidential terms
 #| include: false
 
 pell <- read_csv("data/pell.csv")
@@ -126,7 +126,7 @@ pell_grouped2 <- pell2 |>
 ```
 
 ```{r}
-#| label: code-for-first-viz-q2
+#| label: data wrangling for qs
 #| include: false
 enrollment <- enrollment[1:51,] |>
   mutate(STATE = c("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA",
@@ -275,9 +275,10 @@ high_enroll_dif <- enrollment_longer |>
 
 -   **Line** **graph** which explores time series progression of pell grant awards by region.
 
-## Visualization \# 1
+## Average Pell Grant Award by State Across Presidential Terms
 
 ```{r}
+#| label: Code for viz1q1
 #| fig.width = 8, fig.asp = 0.5
 #visualization # 1
 ggplot(pell_map, aes(long, lat, group = group)) + 
@@ -289,9 +290,10 @@ ggplot(pell_map, aes(long, lat, group = group)) +
   theme(plot.title = element_text(vjust = 2.5))
 ```
 
-## Visualization \# 2
+## Average Pell Grant Award by Region Over Time
 
 ```{r}
+#| label: code for viz2q1
 #visualization # 1
  ggplot(pell_grouped2, aes(x = YEAR, y = AVG_PELL_AWARD,
                            group = REGION, color = REGION)) + 
@@ -299,10 +301,10 @@ ggplot(pell_map, aes(long, lat, group = group)) +
    theme_minimal() +
    scale_color_manual(values = wes_palette("Moonrise2", n = 4)) + 
    scale_x_continuous(breaks = seq(from = 2000, to = 2018, by = 4)) +
-   labs(title = "Upward Trend in Average Pell Grant", 
-        subtitle = "Grouped by Region", 
+   labs(title = "Upward Trend in Average Pell Grant: Grouped by Region",
         x = "Year", 
-       y = "Average Pell Award ($)")
+       y = "Average Pell Award ($)") + 
+   theme(plot.title = element_text(vjust = 2.5))
 ```
 
 # Change in Proportion of Students Receiving Pell Grants Over Time
@@ -313,9 +315,10 @@ ggplot(pell_map, aes(long, lat, group = group)) +
 
 -   Created the **proportion_recieving_pell** variable
 
-## Visualization \# 1
+## Proportion of Students Receiving a Pell Grant in Each State Over Time
 
 ```{r}
+#| label: code for viz1q2
 #visualization # 1
 enrollment_longer |>
   ggplot(aes(
@@ -328,8 +331,7 @@ enrollment_longer |>
              size = 2) +
   theme_minimal() + 
   scale_color_manual(values = wes_palette("Moonrise2", n = 4)) +
-  labs(title = "Proportion of Students Receiving a Pell Grant in Each State",
-       subtitle = "Highlighting the States with the Largest Change in Proportion",
+  labs(title = "Highlighting the States with the Largest Change in Proportion From 2010-2017",
        x = "Year",
        y = "Proportion of Students Receiving a Pell Grant",
        caption = "Amount of students enrolled is Interpolated from 2010 and 2020 data"
@@ -338,14 +340,16 @@ enrollment_longer |>
   annotate("text", x=2, y=.447, label= "Indiana", color = '#1F1917', size = 4) + 
   annotate("text", x=2.2, y=.55, label= "Iowa", color = '#B36A2B', size = 4) +
   annotate("text", x=2, y=.63, label= "Idaho", color = '#C1BA7F', size = 4) + 
-  theme(plot.caption = element_text(hjust = 0))
+  theme(plot.caption = element_text(hjust = 0)) +
+  theme(plot.title = element_text(vjust = 2.5))
 
 
 ```
 
-## Visualization \# 2
+## Proportion of Those Receiving Pell Grants by State in 2010 and 2017
 
 ```{r}
+#| label: code for viz2q2
 #| fig.width = 9, fig.asp = 0.4
 #visualization # 1
 map_enroll_longer <- inner_join(pell_map, enrollment_longer, by = "STATE")
@@ -361,13 +365,11 @@ map_enroll_longer_filt |>
     geom_polygon(aes(fill = proportion_receiving_pell), 
                  color = "white") + 
     facet_wrap(~year) + 
-  labs(title = "Proportion of Those Receiving Pell Grants by State in 2010 and 2017",
-       subtitle = "Smaller Proportion of Students are Receiving Pell Grants in 2017") +
+  labs(title = "Smaller Proportion of Students are Receiving Pell Grants in 2017") +
   scale_fill_gradient(name ="Proportion of Students\nReceiving Pell Grants", 
                       low = "light green", 
                       high = "dark green") +
-  theme(plot.title = element_text(vjust = 2.5), 
-        plot.subtitle = element_text(vjust = 3))
+  theme(plot.title = element_text(vjust = 2.5))
   
 ```
 
