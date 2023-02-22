@@ -379,4 +379,13 @@ map_enroll_longer_filt |>
 
 ## Overall Conclusions
 
+<<<<<<< HEAD
+=======
+-   Overall increase in amount of money awarded in pell grants over time.
+
+-   General decrease in the proportion of students receiving pell grants over time.
+
+-   This contradiction is likely due to increasing tuition costs over time.
+
+>>>>>>> 1943414808e3f7b2aff41eaf1d4c8458e50607f4
 # Thank You!
