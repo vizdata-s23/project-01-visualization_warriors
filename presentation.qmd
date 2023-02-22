@@ -358,13 +358,10 @@ map_enroll_longer_filt |>
 
 ## Overall Conclusions
 
-```{r}
-#| label: boring-regression
+-   Overall increase in amount of money awarded in pell grants over time.
 
-# a boring regression
-model <- lm(dist ~ speed, data = cars)
-tidy(model)
-glance(model)
-```
+-   General decrease in the proportion of students receiving pell grants over time.
+
+-   This contradiction is likely due to increasing tuition costs over time.
 
 # Thank You!
