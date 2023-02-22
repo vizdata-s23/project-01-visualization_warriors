@@ -255,7 +255,7 @@ high_enroll_dif <- enrollment_longer |>
 
 ## How does the average Pell grant award change over time based on the geographic region?
 
--   Created two additional variables: \`average pell grant\` per school and \`region\`.
+-   Created two additional variables: **average pell grant** per school and **region**.
 
 -   **Spatial** **graph** showing average pell grant award across presidential terms for individual states in U.S.
 
@@ -295,7 +295,7 @@ ggplot(pell_map, aes(long, lat, group = group)) +
 
 -   Which states have seen greatest changes in their proportion of students receiving awards over time.
 
--   Created the \`proportion_recieving_pell\` variable
+-   Created the **proportion_recieving_pell** variable
 
 ## Visualization \# 1
 
