@@ -1,5 +1,5 @@
 ---
-title: "Exploring Pell Grant Awards"
+title: "Financing College: Exploring Pell Grant Awards"
 subtitle: "STA/ISS 313 - Spring 2023 - Project 1"
 author: "Visualization Warriors"
 title-slide-attributes:
