@@ -103,7 +103,9 @@ ggplot(pell_map, aes(long, lat, group = group)) +
   scale_fill_gradient(low = "light green", high = "dark green") +
   facet_wrap(~TERM) +
   labs(fill = "Average Award ($)",
-       title = "Consistent State-by-State Upward Trend Across Presidencies")
+       title = "Consistent State-by-State Upward Trend Across Presidencies") + 
+  theme(plot.title = element_text(vjust = 10), 
+        plot.subtitle = element_text(vjust = 9))
 ```
 
 ```{r}
@@ -347,7 +349,9 @@ map_enroll_longer_filt |>
   labs(title = "Proportion of Those Receiving Pell Grants by State in 2010 and 2017",
        subtitle = "Smaller Proportion of Students are Receiving Pell Grants in 2017") +
   scale_fill_continuous(name = "Proportion of Students\nReceiving Pell Grants") + 
-  scale_fill_gradient(low = "light green", high = "dark green")
+  scale_fill_gradient(low = "light green", high = "dark green") + 
+  theme(plot.title = element_text(vjust = 10), 
+        plot.subtitle = element_text(vjust = 9))
   
 ```
 

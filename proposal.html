@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Team name - Exploring Pell Grant Data From 1999-2017</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Team name</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Project</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./proposal.html" aria-current="page">
+ <span class="menu-text">Proposal</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./presentation.html">
+ <span class="menu-text">Presentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/vizdata-s23/project-01-visualization_warriors"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#dataset" id="toc-dataset" class="nav-link active" data-scroll-target="#dataset">Dataset</a>
+  <ul class="collapse">
+  <li><a href="#data-description" id="toc-data-description" class="nav-link" data-scroll-target="#data-description">Data Description:</a></li>
+  <li><a href="#the-reason-we-chose-this-data-set" id="toc-the-reason-we-chose-this-data-set" class="nav-link" data-scroll-target="#the-reason-we-chose-this-data-set">The reason we chose this data set:</a></li>
+  </ul></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a>
+  <ul class="collapse">
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1:</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2:</a></li>
+  </ul></li>
+  <li><a href="#analysis-plan" id="toc-analysis-plan" class="nav-link" data-scroll-target="#analysis-plan">Analysis plan</a>
+  <ul class="collapse">
+  <li><a href="#plan-to-solve-question-1" id="toc-plan-to-solve-question-1" class="nav-link" data-scroll-target="#plan-to-solve-question-1">Plan To Solve Question 1:</a></li>
+  <li><a href="#plan-to-solve-question-2" id="toc-plan-to-solve-question-2" class="nav-link" data-scroll-target="#plan-to-solve-question-2">Plan To Solve Question 2:</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Exploring Pell Grant Data From 1999-2017</h1>
+<p class="subtitle lead">Proposal</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+
+</div>
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
+<section id="data-description" class="level3">
+<h3 class="anchored" data-anchor-id="data-description">Data Description:</h3>
+<p>This data set <code>pell</code> contains information on the distribution of Pell Grant awards to college students in the United States from the years of 1999-2017 and was featured in tidytuesday in 2022. The data set is a compilation of yearly data sets collected by the US Department of Education. It is important to note that the original yearly data was reported in different ways across the years but was later compiled and cleaned to the <code>pell</code> data set used in this project.</p>
+<p>The <code>pell</code> data set contains 100474 cases of pell grant grants and only 4 missing values.</p>
+<p>It contains 6 columns titled STATE, AWARD, RECIPIENT, NAME, SESSION, YEAR . Essentially, the data set explores the award amount in each school for each respective year.</p>
+<p>The variables NAME, STATE, and SESSION are all factors. Specifically, it is important to note that the variable STATE includes US states <em>and</em> territories (su) . Finally, the difference between SESSION and YEAR is that SESSION indicates the academic school year (typically in between two years).</p>
+</section>
+<section id="the-reason-we-chose-this-data-set" class="level3">
+<h3 class="anchored" data-anchor-id="the-reason-we-chose-this-data-set">The reason we chose this data set:</h3>
+<p>A pell grant is a grant from the United States government covering the cost of an undergraduate or graduate-level education. Recipients of pell grants typically display strong financial need. As college students, we and our families are currently making financial decisions pertaining to financing our education. Pell grants are of interest to us, as we understand the impact receiving a pell grant can have on one’s financial situation and educational opportunity. This dataset will allow us to explore various trends of receiving pell grants over time and across locations.</p>
+</section>
+</section>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1:</h3>
+<p>How does the average Pell grant award change over time based on the region?</p>
+</section>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2:</h3>
+<p>Which states have seen the biggest change in the percentage of awarded Pell grants to total students enrolled in university over time?</p>
+</section>
+</section>
+<section id="analysis-plan" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-plan">Analysis plan</h2>
+<section id="plan-to-solve-question-1" class="level3">
+<h3 class="anchored" data-anchor-id="plan-to-solve-question-1">Plan To Solve Question 1:</h3>
+<p>The raw data set contains six columns of information: the state in which the school’s located, the total Pell grant award the school gave, the number of students at the school who received a Pell grant, the name of the school, the session year, and the year. In order to solve the question of how the average Pell grant award changes over time based on the region, we first need two additional variables: the <strong>average pell grant</strong> for school and <strong>region.</strong> The ‘average pell grant’ variable will be calculated by dividing the total Pell grant award by the number of students who received the award. The ‘region’ variable will be mutated by returning the region based on the school’s state.</p>
+<p>We plan to find a data set containing two columns, the name of each of the 50 states and the region in the United States for each other the 50 states. We will join that dataset with our pell grant data set by state. A line graph will most likely be implemented to answer this question, since we’re seeking to check a numerical variable’s progression over time. In the end, we hope to have a region-by-region understanding of Pell grant awards and their changes over time. Then we can differentiate the line graphs by region through faceting for each region. Another option would be implementing one individual line graph that has all the lines for each region, so that we can see more clearly how each region compares to one another. The x-variable would be each year provided in the data.&nbsp;</p>
+<p>Additionally, we plan to make a second, more visually appealing spatial graph to evaluate change over time. We plan to group the colleges by individual states and different time periods, finding their average pell grant. The time periods will be broken up by presidential terms, hoping to find some interesting correlations and trends concerning real-world events that have taken place. The visualization will display a map of the United States, and each individual state will be a particular shade of a certain color. The darker shade on the graph will represent a higher average pell grant.&nbsp; We hope to facet by the time period (election term) for comparison purposes. Solving this will require extracted information on the location coordinates for each state, for the purposes of making the map visualization. Possibly implementing a Google maps API or the ‘ggmap’ library package will assist us in creating this graph.&nbsp;</p>
+<p>In the end, we hope to have a region-by-region understanding of pell grant awards and their changes over time.</p>
+</section>
+<section id="plan-to-solve-question-2" class="level3">
+<h3 class="anchored" data-anchor-id="plan-to-solve-question-2">Plan To Solve Question 2:</h3>
+<p>From the raw data set, we will use the state in which the school is located, the total amount of Pell grant recipients for each year, and the year. We will summarize the data to just get the amount of Pell recipients by state by year. From there, we will incorporate enrollment data for the total amount of students enrolled in university by state by year. With that data, we will be able to calculate the proportion of students who are enrolled in university receiving a Pell Grant by dividing amount of recipients by state by year by total undergrads enrolled by state by year.</p>
+<p>For our first visualization, we plan to use a line graph to visualize the proportion of students receiving a pell grant over time in each state. We will do this by having a line for each of the 50 states and having a very low alpha value for most of them, with a few that we want to highlight having a higher alpha level. This will allow us to clearly show a few notable stats over the top of the general trend for all of the states. For our second visualization, we plan to get the coordinates for each college by using a google maps API and then plotting a dot at each college. The dot will be sized based on the amount of pell grant recipients at the school and colored by the proportion of students receiving a pell grant. We then will put a few of these maps side by side each representing a different time period, possibly corresponding to presidential cycle. This will allow us to see trends in states and areas in both amounts of students and proportions.</p>
+<p><br>
+</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
