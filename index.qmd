@@ -22,17 +22,17 @@ The `pell` data set contains 100470 cases of Pell grant awards and contains 4 mi
 
 ### Introduction
 
-(1-2 paragraphs): Introduction to the question and what parts of the dataset are necessary to answer the question. Also discuss why you're interested in this question.
+The first question we will be answering is: How does the average Pell grant award change over time based on the geographic region? In order to answer this question, we will rely on all the variables (?) while also creating two additional variables\" the **average Pell grant** for each school and the **region.** The geographic regions we will be exploring, as outlined by the US Census are the Northeast, Southwest, West, Southeast, Midwest and US Territory. Our goal with this research question is to understand how average pell grant award distributions vary across different geographic regions eligible for pell grant funding on a year by year basis. 
+
+	We are interested in this question for many reasons. Firstly, we are interested in exploring which geographic locations have the most students that receive government support to obtain higher education. Additionally, we have to make inferences and observations about what geographic and demographic characteristics could explain the distributions. Secondly, we are also interested in exploring how these averages changed over time. This is important as it will allow us to draw connections between political administrations, pandemics, and other relevant moments in time from 1999-2017. Overall, this will better support our understanding of pell grant distributions and allow us to best understand their regional changes. 
 
 ### Approach
 
-The raw data set contains six columns of information: the state in which the school's located, the total Pell grant award the school gave, the number of students at the school who received a Pell grant, the name of the school, the session year, and the year. In order to solve the question of how the average Pell grant award changes over time based on the region, we first need two additional variables: the **average pell grant** for school and **region.** The 'average pell grant' variable will be calculated by dividing the total Pell grant award by the number of students who received the award. The 'region' variable will be mutated by returning the region based on the school's state.
+In order to understand how Pell grant awards change over time based on the geographic region, we created two visualizations that rely on the mutation of two additional variables which are `average_pell_grant` per school and `region`.
 
-We plan to find a data set containing two columns, the name of each of the 50 states and the region in the United States for each other the 50 states. We will join that dataset with our pell grant data set by state. A line graph will most likely be implemented to answer this question, since we're seeking to check a numerical variable's progression over time. In the end, we hope to have a region-by-region understanding of Pell grant awards and their changes over time. Then we can differentiate the line graphs by region through faceting for each region. Another option would be implementing one individual line graph that has all the lines for each region, so that we can see more clearly how each region compares to one another. The x-variable would be each year provided in the data.
+The first visualization is a spatial graph showcasing the average pell grant award across presidencies. It displays 6 maps of the United States (one for each presidential term) with each state colored based upon the average pell grant award in that state for the respective presidential term. This is the best way to visualize this information. In order to compare all 50 states at once, the only visually appealing way that is not overcrowded is a map. Showcasing 6 different maps to display change over time allows for simple comparison without overcrowding.
 
-Additionally, we plan to make a second, more visually appealing spatial graph to evaluate change over time. We plan to group the colleges by individual states and different time periods, finding their average pell grant. The time periods will be broken up by presidential terms, hoping to find some interesting correlations and trends concerning real-world events that have taken place. The visualization will display a map of the United States, and each individual state will be a particular shade of a certain color. The darker shade on the graph will represent a higher average pell grant. We hope to facet by the time period (election term) for comparison purposes. Solving this will require extracted information on the location coordinates for each state, for the purposes of making the map visualization. Possibly implementing a Google maps API or the 'ggmap' library package will assist us in creating this graph.
-
-In the end, we hope to have a region-by-region understanding of pell grant awards and their changes over time.
+Our second visualization is a line graph which explores the time series progression of pell grant awards by region. Time (by year) will be on the x-axis and `average pell grant` award is on the y-axis, faceted by region. A line graph best represents the information we are seeking to understand in our research question because it provides a clear, year-to-year representation of pell grant awards for each region and allows us to visually observe the changes for each region of the United States. We chose to make the line breaks on the x-axis the year of presidential elections as we hypothesized that these years would have the most dramatic differences.
 
 ### Analysis
 
@@ -135,7 +135,13 @@ ggplot(pell_grouped2, aes(x = YEAR, y = AVG_PELL_AWARD,
 
 ### Discussion
 
-(1-3 paragraphs): In the Discussion section, interpret the results of your analysis. Identify any trends revealed (or not revealed) by the plots. Speculate about why the data looks the way it does.
+In Part I, we were interested in exploring how the average pell grant awards changed over time based on geographic region and through the creation of two visualizations, we were able to explore this and explanations for the general trends. In the first plot (Figure 1), we explored the average Pell grant change for each state in the United States for each of the presidential terms in the 1999-2017 year period. Based on the visualization, we can see that over time, the average pell grant awarded in the United States increased by each presidential term, meaning that a greater amount of money per year is being allocated by the federal government for pell grant eligible students. The most drastic difference seems to be in between the 2005-2008 Bush Administration and the 2009-2012 Obama Administration and this could be due to the passing of the The Health Care and Education Reconciliation Act ([source](https://obamawhitehouse.archives.gov/issues/education/higher-education/investing-in-pell-grants-to-make-college-affordable)) in which Obama dedicated \$40 Bn USD to increasing Pell grants in the United States. Across presidential terms there are comparatively low amounts of pell grants in the states Nevada and Minnesota, contrasting comparatively high amounts of pell grants in New York and Mississippi. Maybe relate this to the presidential term.
+
+In the second plot (figure 2), we can see that the average Pell grant award increased over from 1999-2017 for all regions of the United States. This can be attributed to multiple factors including inflation, increasing completion of higher education, as well as increasing fiscal spending over time. Again, we can see a collective spike in 2010 that can be explained by the passing of The Health Care and Education Reconciliation Act in 2010 by the Obama Administration, positively supporting pell grant distributions across all regions of the United States. This figure also makes clear that the average Pell grant award over the last twenty years has doubled. In addition to this, despite the similar trend, we can see that the highest average pell grant award was seen in the Northeast and the lowest was in the Midwest. This could be due to the fact that there are a greater number of students and universities in the Northeast than in the Midwest. Notably, we can see in this figure that in 2010, the average pell grant award for the Midwest was the highest. This could be due to the pell grant program expansion\'s popularity in increasing access to college education for a significant amount of students in the Midwest. 
+
+What these two visualizations, both independently and together, do not clearly show us is the role of presidential political affiliation in the Pell Grant investment amount. While we are able to infer that Pell grants increase over time, we are not clearly able to see the difference between presidential terms. For future analysis, it would be interesting to further explore this .
+
+\
 
 ## Question 2: Title that relates to the question you're answering
 
@@ -167,7 +173,6 @@ enrollment_pell <- enrollment_pell |>
          Enrollment_2017 = Enrollment_2010 * (1+(7*percent_change_from_2010/1000)),
          Enrollment_2018 = Enrollment_2010 * (1+(8*percent_change_from_2010/1000)),
          Enrollment_2019 = Enrollment_2010 * (1+(9*percent_change_from_2010/1000)))
-
 
 ```
 
@@ -249,7 +254,7 @@ enrollment_longer |>
 
 
 high_enroll <- enrollment_longer |>
-  filter(STATE %in% (c("AK", "DE", "WY", "ID")))
+  filter(STATE %in% (c("AK", "WY", "DE", "ID")))
 
 ```
 
