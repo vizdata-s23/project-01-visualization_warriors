@@ -38,12 +38,31 @@ Our second visualization is a line graph which explores the time series progress
 ### Analysis
 
 ```{r load-packages}
-library(ggplot2)
-library(tidyverse)
 #Used information from https://www.datanovia.com/en/blog/top-r-color-palettes-to-know-for-great-data-visualization to get color palettes for line graphs
+if (!require(tidyverse)) {
+  install.packages("tidyverse")
+}
+library(tidyverse)
+
+if (!require(ggplot2)) {
+  install.packages("ggplot2")
+}
+library(ggplot2)
+
+if (!require(wesanderson)) {
+  install.packages("wesanderson")
+}
 library(wesanderson)
-require(maps)
-require(viridis)
+
+if (!require(maps)) {
+  install.packages("maps")
+}
+library(maps)
+
+if (!require(viridis)) {
+  install.packages("viridis")
+}
+library(viridis)
 theme_set(
   theme_void()
 )
