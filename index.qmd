@@ -96,7 +96,9 @@ pell_map <- pell_map |>
 ```{r create q1-plot1}
 ggplot(pell_map, aes(long, lat, group = group)) + 
   geom_polygon(aes(fill = AVG_PELL_AWARD), color = "white") + 
-  facet_wrap(~TERM)
+  facet_wrap(~TERM) +
+  labs(fill = "Average Award ($)",
+       title = "Consistent State-by-State Upward Trend Across Presidencies")
 
 ```
 
@@ -126,6 +128,7 @@ ggplot(pell_grouped2, aes(x = YEAR, y = AVG_PELL_AWARD,
   geom_line() +
   theme_minimal() +
   scale_color_manual(values = wes_palette("Moonrise2", n = 4)) + 
+  scale_x_continuous(breaks = seq(from = 2000, to = 2018, by = 4)) +
   labs(title = "Upward Trend in Average Pell Grant", 
        subtitle = "Grouped by Region", 
        x = "Year", 
