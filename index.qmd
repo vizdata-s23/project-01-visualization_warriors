@@ -407,7 +407,7 @@ enrollment_pell_grouped_2017 <- enrollment_pell_grouped_2017[!duplicated(enrollm
 list_dfs = list(enrollment_pell_grouped_2010, enrollment_pell_grouped_2011, enrollment_pell_grouped_2012, enrollment_pell_grouped_2013,
                                           enrollment_pell_grouped_2014, enrollment_pell_grouped_2015, enrollment_pell_grouped_2016, enrollment_pell_grouped_2017)
 
-enrollment_pell_grouped_all <- list_dfs %>% reduce(inner_join, by='STATE', trace.it = TRUE)
+enrollment_pell_grouped_all <- list_dfs %>% reduce(inner_join, by='STATE')
 
 enrollment_longer <- enrollment_pell_grouped_all |>
   pivot_longer(cols = contains("20")) |>
@@ -467,8 +467,7 @@ enrollment_longer |>
 map_enroll_longer <- inner_join(pell_map, enrollment_longer, by = "STATE")
 
 map_enroll_longer_filt <- map_enroll_longer |>
-  filter(year %in% c(2010, 2017)) |>
-  mutate(Propo)
+  filter(year %in% c(2010, 2017))
 
 map_enroll_longer_filt |>
   ggplot(
