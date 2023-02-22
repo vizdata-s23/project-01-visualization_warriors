@@ -72,12 +72,12 @@ knitr::opts_chunk$set(
 
 ```{r}
 #visualization # 1
-ggplot(pell_map, aes(long, lat, group = group)) + 
-  geom_polygon(aes(fill = AVG_PELL_AWARD), color = "white") +
-  scale_fill_gradient(low = "light green", high = "dark green") +
-  facet_wrap(~TERM) +
-  labs(fill = "Average Award ($)",
-       title = "Consistent State-by-State Upward Trend Across Presidencies")
+# ggplot(pell_map, aes(long, lat, group = group)) + 
+#   geom_polygon(aes(fill = AVG_PELL_AWARD), color = "white") +
+#   scale_fill_gradient(low = "light green", high = "dark green") +
+#   facet_wrap(~TERM) +
+#   labs(fill = "Average Award ($)",
+#        title = "Consistent State-by-State Upward Trend Across Presidencies")
 ```
 
 ## Key Takeaways
@@ -92,16 +92,16 @@ ggplot(pell_map, aes(long, lat, group = group)) +
 
 ```{r}
 #visualization # 1
-ggplot(pell_grouped2, aes(x = YEAR, y = AVG_PELL_AWARD,
-                          group = REGION, color = REGION)) + 
-  geom_line() +
-  theme_minimal() +
-  scale_color_manual(values = wes_palette("Moonrise2", n = 4)) + 
-  scale_x_continuous(breaks = seq(from = 2000, to = 2018, by = 4)) +
-  labs(title = "Upward Trend in Average Pell Grant", 
-       subtitle = "Grouped by Region", 
-       x = "Year", 
-       y = "Average Pell Award ($)")
+# ggplot(pell_grouped2, aes(x = YEAR, y = AVG_PELL_AWARD,
+#                           group = REGION, color = REGION)) + 
+#   geom_line() +
+#   theme_minimal() +
+#   scale_color_manual(values = wes_palette("Moonrise2", n = 4)) + 
+#   scale_x_continuous(breaks = seq(from = 2000, to = 2018, by = 4)) +
+#   labs(title = "Upward Trend in Average Pell Grant", 
+#        subtitle = "Grouped by Region", 
+#        x = "Year", 
+#        y = "Average Pell Award ($)")
 ```
 
 ## Key Takeaways #2
