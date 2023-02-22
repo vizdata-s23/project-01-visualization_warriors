@@ -249,7 +249,7 @@ high_enroll_dif <- enrollment_longer |>
 
 ## Our Research Question + Goal
 
--   Goal is to understand how average Pell grant award distribution over time, explore reasoning for these patterns, and learn how this relates to higher education.
+-   Goal is to understand average Pell grant award distribution over time, explore reasoning for these patterns, and learn how this relates to higher education.
 
 # Question 1:
 
