@@ -245,7 +245,7 @@ high_enroll_dif <- enrollment_longer |>
 
 -   Compilation of yearly data sets collected by U.S. Department of Education
 
--   6 columns: State, Award, Recipient, Name, Session, Year
+-   6 columns: Name, State, Total Award, Year, Recipients, Session
 
 ## Our Research Question + Goal
 
