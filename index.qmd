@@ -157,7 +157,14 @@ We are interested in exploring this question for many reasons. Firstly, building
 
 The first visualization is a line graph showcasing the proportion of students receiving a pell grant in each state over time. The x-axis is the year and the y-axis is the proportion of students receiving a pell grant in each state over time. Each state has a line showcasing its trend, however we highlighted the four most interesting states for analysis - Alaska, Wyoming, Delaware, and Idaho. The line for all other states is set to a muted gray color with a low transparency. This visualization allows viewers to compare the change in proportion of students receiving a pell grant over time for the most noteworthy states. It presents all states in order to allow viewers to have a mean of comparison and better understand the significance of highlighted states. Aesthetic features are carefully considered to avoid clutter and confusion.
 
-For our second visualization, we plan to get the coordinates for each college by using a google maps API and then plotting a dot at each college. The dot will be sized based on the amount of pell grant recipients at the school and colored by the proportion of students receiving a pell grant. We then will put a few of these maps side by side each representing a different time period, possibly corresponding to presidential cycle. This will allow us to see trends in states and areas in both amounts of students and proportions.
+The second visualization displays two spatial graphs of the United States. One 
+for the year 2010 and one for the year 2017. In these graphs the states are 
+colored based on the proportion of students receiving pell grants that year. 
+This is the best approach to showcase this information as a spatial graph allows
+an easily digestible presentation of data for all 50 states at once. We only 
+displayed two maps, as the years these maps represent are the most interesting 
+for analysis, and we wanted to minimize clutter. 
+
 
 ### Analysis
 
